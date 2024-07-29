@@ -1,12 +1,10 @@
 import tkinter as tk
 
-
-
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Number System Converter")
-        self.geometry("346x210")
+        #self.geometry("346x210")
         self.st=tk.StringVar(value="bin")
         
         self.menu=Menu(self)
@@ -16,7 +14,7 @@ class Menu(tk.Frame):
         super().__init__(parent)
         self.pack(expand=True)
         tk.Label(self,font=("TkDefaultFont",15),text="Number System Converter").grid(row=0,column=0,
-                                                                                     columnspan=3,sticky="w",
+                                                                                     columnspan=2,sticky="news",
                                                                                      pady=2)
         self.entry_(parent,13)
         self.entry_display()
@@ -30,9 +28,9 @@ class Menu(tk.Frame):
         self.butto=tk.Button(self,text="Convert",command=lambda :cal(self,parent),font=("TkDefaultFont",round(z*1.2)))
         self.butto1=tk.Button(self,text="Decode",command=lambda :decode(self,parent),font=("TkDefaultFont",round(z*1.2)))
     def entry_display(self):
-        self.columnconfigure((0,1,2),weight=1)
-        self.rowconfigure((0,1,2,3),weight=1)
-        self.entry.grid(column=0,row=1,sticky="ew",columnspan=3,padx=12,pady=3)
+        self.columnconfigure((0,1),weight=1,uniform="a")
+        self.rowconfigure((0,1,2,3),weight=1,uniform="a")
+        self.entry.grid(column=0,row=1,sticky="ew",columnspan=2,padx=12,pady=3)
         self.chb.grid(column=0,row=2,stick="w",padx=13)
         self.chh.grid(column=1,row=2,stick="w",padx=13)
         self.butto.grid(column=0,row=3,columnspan=1,sticky="news",ipady=12)
@@ -62,5 +60,5 @@ def decode(self,parent):
         self.entry.insert(0,"Error")
         self.entry.icursor ("end")
         self.entry.select_adjust ("end")
-        
-App()
+App()      
+
